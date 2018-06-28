@@ -1,0 +1,16 @@
+[Unit]
+Description=Myztic Full Node
+After=network.target
+
+[Service]
+User=myztic
+Group=myztic
+WorkingDirectory=~
+
+Type=forking
+PIDFile=/var/run/myzticd.pid
+ExecStart=/usr/bin/myzticd --detach --pidfile /var/run/myzticd.pid
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
